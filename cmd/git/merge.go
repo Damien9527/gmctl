@@ -27,6 +27,8 @@ to quickly create a Cobra application.`,
 func init() {
 	//cmd.gitCmd.AddCommand(mergeCmd)
 
+	//cmd.GitCmd.AddCommand(MergeCmd)
+
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command

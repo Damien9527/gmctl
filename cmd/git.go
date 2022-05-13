@@ -6,15 +6,14 @@ package cmd
 
 import (
 	"fmt"
-	"gmctl/cmd/git"
-
 	"github.com/spf13/cobra"
+	"gmctl/cmd/git"
 )
 
 // gitCmd represents the git command
-var gitCmd = &cobra.Command{
+var GitCmd = &cobra.Command{
 	Use:   "git",
-	Short: "A brief description of your command",
+	Short: "git subcommands ",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
@@ -27,10 +26,10 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	appCmd.AddCommand(gitCmd)
-	gitCmd.AddCommand(git.TagCmd)
-	gitCmd.AddCommand(git.MergeCmd)
-	gitCmd.AddCommand(git.CloneCmd)
+	AppCmd.AddCommand(GitCmd)
+	GitCmd.AddCommand(git.CloneCmd)
+	GitCmd.AddCommand(git.MergeCmd)
+	GitCmd.AddCommand(git.TagCmd)
 
 	// Here you will define your flags and configuration settings.
 
@@ -38,10 +37,10 @@ func init() {
 	// and all subcommands, e.g.:
 	// gitCmd.PersistentFlags().String("foo", "", "A help for foo")
 
-	appCmd.PersistentFlags().StringP("tag", "t", "","tag")
+	AppCmd.PersistentFlags().StringP("tag", "t", "","tag")
 	//appCmd.PersistentFlags().StringP("merge-request","m","","merge-request")
-	appCmd.PersistentFlags().StringP("from","","","from branch ")
-	appCmd.PersistentFlags().StringP("to","","","to branch" )
+	AppCmd.PersistentFlags().StringP("from","","","from branch ")
+	AppCmd.PersistentFlags().StringP("to","","","to branch" )
 
 
 

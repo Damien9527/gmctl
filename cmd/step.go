@@ -6,14 +6,15 @@ package cmd
 
 import (
 	"fmt"
+	"gmctl/cmd/step"
 
 	"github.com/spf13/cobra"
 )
 
 // stepCmd represents the step command
-var stepCmd = &cobra.Command{
+var StepCmd = &cobra.Command{
 	Use:   "step",
-	Short: "A brief description of your command",
+	Short: "流水线阶段功能",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
@@ -26,7 +27,23 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	rootCmd.AddCommand(stepCmd)
+	rootCmd.AddCommand(StepCmd)
+	StepCmd.AddCommand(step.GrayCmd)
+	StepCmd.AddCommand(step.AutotestCmd)
+	StepCmd.AddCommand(step.CheckApproveCmd)
+	StepCmd.AddCommand(step.CreateApproveCmd)
+	StepCmd.AddCommand(step.DeloyCmd)
+	StepCmd.AddCommand(step.PrebuildCmd)
+	StepCmd.AddCommand(step.PromoteCmd)
+	StepCmd.AddCommand(step.RollbackCmd)
+	StepCmd.AddCommand(step.ScanCmd)
+
+
+	StepCmd.PersistentFlags().StringP("env", "e", "","env")
+	StepCmd.PersistentFlags().StringP("name","n","","name")
+	StepCmd.PersistentFlags().StringP("pipeline_id","p","","pipeline_id")
+	StepCmd.Flags().StringVarP(&ConfigFile, "config", "c", "~/.gmctl/config.yaml","config file ")
+
 
 	// Here you will define your flags and configuration settings.
 
