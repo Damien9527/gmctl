@@ -47,8 +47,10 @@ func init() {
 
 
 func run() {
+	fmt.Println("appname: ",os.Getenv("appname"))
+	fmt.Println("env: ",os.Getenv("env"))
+	fmt.Println("build: ",os.Getenv("BUILD_ID"))
+	fmt.Println("build: ",os.Getenv("builder"))
+	fmt.Println("Environ: ",os.Environ())
 
-	fmt.Println(os.Getenv("appname"))
-	fmt.Println(os.Getenv("env"))
-
-}
+ }
